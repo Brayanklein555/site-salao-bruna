@@ -1,10 +1,10 @@
 const firebaseConfig = {
-  apiKey: "SUA_API_KEY",
+  apiKey: "AIzaSyAeWc728jnxFMyUenPMy6vLnzUvMeKUyCY",
   authDomain: "studio-klein.firebaseapp.com",
   projectId: "studio-klein",
   storageBucket: "studio-klein.appspot.com",
   messagingSenderId: "1060056697578",
-  appId: "SUA_APP_ID"
+  appId: "1:1060056697578:web:109c55d27fa8daee87a593"
 };
 
 firebase.initializeApp(firebaseConfig);
