@@ -1,0 +1,63 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: black;
+  color: white;
+  overflow-x: hidden;
+}
+
+header {
+  text-align: center;
+  padding: 20px;
+}
+
+.logo {
+  width: 120px;
+  border: 3px solid gold;
+  border-radius: 50%;
+  animation: brilho 3s infinite;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+nav button {
+  background: transparent;
+  border: 1px solid #0a2cff;
+  color: white;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.aba {
+  display: none;
+  padding: 20px;
+  text-align: center;
+}
+
+.aba.ativa {
+  display: block;
+}
+
+input, select {
+  padding: 10px;
+  margin: 5px;
+  width: 220px;
+}
+
+.brilho {
+  background: linear-gradient(90deg, gold, orange, gold);
+  border: none;
+  padding: 12px 20px;
+  cursor: pointer;
+  animation: brilho 2s infinite;
+}
+
+@keyframes brilho {
+  0% { filter: brightness(1); }
+  50% { filter: brightness(1.5); }
+  100% { filter: brightness(1); }
+}
