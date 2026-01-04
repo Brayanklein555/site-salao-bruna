@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Studio Klein | Agendamento Online</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- Fundo animado -->
+  <canvas id="particles"></canvas>
+
+  <!-- Logo -->
+  <header>
+    <img src="logo.png" class="logo" />
+    <h1>Studio Klein</h1>
+  </header>
+
+  <!-- Navegação -->
+  <nav>
+    <button onclick="mostrarAba('agendar')">Agendar</button>
+    <button onclick="mostrarAba('servicos')">Serviços</button>
+    <button onclick="mostrarAba('login')">Área ADM</button>
+  </nav>
+
+  <!-- AGENDAMENTO -->
+  <section id="agendar" class="aba ativa">
+    <h2>Agende seu horário</h2>
+
+    <input type="text" id="nome" placeholder="Seu nome" />
+    <input type="date" id="data" />
+    <input type="time" id="hora" />
+
+    <select id="servico"></select>
+
+    <button class="brilho" onclick="agendar()">Confirmar Agendamento</button>
+    <p id="msg"></p>
+  </section>
+
+  <!-- SERVIÇOS -->
+  <section id="servicos" class="aba">
+    <h2>Serviços e Preços</h2>
+    <div id="lista-servicos"></div>
+  </section>
+
+  <!-- LOGIN ADM -->
+  <section id="login" class="aba">
+    <h2>Login Administrativo</h2>
+    <input type="email" id="email" placeholder="Email" />
+    <input type="password" id="senha" placeholder="Senha" />
+    <button onclick="login()">Entrar</button>
+  </section>
+
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+
+  <script src="firebase-config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
