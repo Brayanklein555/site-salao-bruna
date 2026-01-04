@@ -2,55 +2,33 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Studio Klein | Agendamento Online</title>
+  <title>Studio Klein | Nail Designer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<canvas id="bg-waves"></canvas>
-<canvas id="gold-particles"></canvas>
+  <!-- Fundo animado -->
+  <canvas id="waves"></canvas>
+  <div class="fog"></div>
+  <canvas id="particles"></canvas>
 
-<header>
-  <img src="logo.png" class="logo">
-  <h1>Studio Klein</h1>
-</header>
+  <!-- Conteúdo -->
+  <main class="container">
+    <img src="logo.png" alt="Studio Klein" class="logo">
 
-<nav>
-  <button onclick="mostrarAba('agendar')">Agendar</button>
-  <button onclick="mostrarAba('servicos')">Serviços</button>
-  <button onclick="mostrarAba('login')">Área ADM</button>
-</nav>
+    <h1>Studio Klein</h1>
+    <p class="subtitle">Nail Designer • Beleza • Elegância</p>
 
-<section id="agendar" class="aba ativa">
-  <h2>Agende seu horário</h2>
-  <input id="nome" placeholder="Seu nome">
-  <input id="data" type="date">
-  <input id="hora" type="time">
-  <select id="servico"></select>
-  <button class="brilho" onclick="agendar()">Confirmar</button>
-  <p id="msg"></p>
-</section>
+    <p class="description">
+      Realce sua beleza com técnicas modernas, cuidado impecável e um
+      atendimento exclusivo pensado para você.
+    </p>
 
-<section id="servicos" class="aba">
-  <h2>Serviços</h2>
-  <div id="lista-servicos"></div>
-</section>
+    <a href="#" class="btn">Agendar Horário</a>
+  </main>
 
-<section id="login" class="aba">
-  <h2>Área Administrativa</h2>
-  <input id="email" placeholder="Email">
-  <input id="senha" type="password" placeholder="Senha">
-  <button class="brilho" onclick="login()">Entrar</button>
-</section>
-
-<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
-
-<script src="firebase-config.js"></script>
-<script src="app.js"></script>
-<script src="effects.js"></script>
-
+  <script src="script.js"></script>
 </body>
 </html>
