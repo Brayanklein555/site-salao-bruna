@@ -1,63 +1,100 @@
+* { margin:0; padding:0; box-sizing:border-box; }
+
 body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: black;
-  color: white;
-  overflow-x: hidden;
+  background:black;
+  color:white;
+  font-family:Segoe UI, sans-serif;
+  overflow-x:hidden;
 }
 
-header {
-  text-align: center;
-  padding: 20px;
+/* CANVAS */
+#bg-waves,#gold-particles{
+  position:fixed;
+  inset:0;
+  z-index:-3;
 }
 
-.logo {
-  width: 120px;
-  border: 3px solid gold;
-  border-radius: 50%;
-  animation: brilho 3s infinite;
+/* NEVOA */
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:-2;
+  pointer-events:none;
+  background:
+    radial-gradient(circle at top, rgba(120,180,255,.3), transparent 60%),
+    radial-gradient(circle at bottom, rgba(120,180,255,.3), transparent 60%),
+    radial-gradient(circle at left, rgba(120,180,255,.3), transparent 60%),
+    radial-gradient(circle at right, rgba(120,180,255,.3), transparent 60%);
 }
 
-nav {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
+header{text-align:center;padding:25px}
+.logo{
+  width:130px;
+  border-radius:50%;
+  border:3px solid gold;
+  box-shadow:0 0 25px gold;
+  animation:glow 3s infinite;
 }
 
-nav button {
-  background: transparent;
-  border: 1px solid #0a2cff;
-  color: white;
-  padding: 10px 20px;
-  cursor: pointer;
+nav{
+  display:flex;
+  justify-content:center;
+  gap:15px;
 }
 
-.aba {
-  display: none;
-  padding: 20px;
-  text-align: center;
+nav button{
+  background:transparent;
+  border:2px solid gold;
+  color:gold;
+  padding:12px 25px;
+  border-radius:30px;
+  cursor:pointer;
 }
 
-.aba.ativa {
-  display: block;
+nav button:hover{
+  background:gold;
+  color:black;
+  box-shadow:0 0 15px gold;
 }
 
-input, select {
-  padding: 10px;
-  margin: 5px;
-  width: 220px;
+.aba{
+  display:none;
+  margin:30px auto;
+  max-width:420px;
+  padding:25px;
+  background:rgba(0,0,0,.65);
+  border-radius:20px;
+  border:2px solid gold;
 }
 
-.brilho {
-  background: linear-gradient(90deg, gold, orange, gold);
-  border: none;
-  padding: 12px 20px;
-  cursor: pointer;
-  animation: brilho 2s infinite;
+.aba.ativa{display:block}
+
+input,select{
+  width:100%;
+  margin:8px 0;
+  padding:12px;
+  border-radius:10px;
+  border:1px solid gold;
+  background:black;
+  color:white;
 }
 
-@keyframes brilho {
-  0% { filter: brightness(1); }
-  50% { filter: brightness(1.5); }
-  100% { filter: brightness(1); }
+.brilho{
+  width:100%;
+  margin-top:10px;
+  padding:14px;
+  border:none;
+  border-radius:30px;
+  background:linear-gradient(90deg,gold,#ffd27d,gold);
+  color:black;
+  font-weight:bold;
+  cursor:pointer;
+  animation:glow 2s infinite;
+}
+
+@keyframes glow{
+  0%{box-shadow:0 0 10px gold}
+  50%{box-shadow:0 0 30px gold}
+  100%{box-shadow:0 0 10px gold}
 }
