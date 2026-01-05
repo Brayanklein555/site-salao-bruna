@@ -1,3 +1,4 @@
+/* ===== RESET ===== */
 * {
   margin: 0;
   padding: 0;
@@ -5,39 +6,54 @@
   font-family: "Segoe UI", sans-serif;
 }
 
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+}
 
 body {
   background: #020617;
-  color: #fff;
+  color: #ffffff;
   overflow-x: hidden;
 }
 
-/* CANVAS */
+/* ===== CANVAS FUNDO ===== */
 canvas {
   position: fixed;
   inset: 0;
-  z-index: 0;
+  width: 100%;
+  height: 100%;
   pointer-events: none;
 }
 
-/* NÉVOA NAS BORDAS */
+#waves {
+  z-index: 0;
+}
+
+#particles {
+  z-index: 1;
+}
+
+/* ===== NÉVOA AZUL NAS BORDAS ===== */
 .fog {
   position: fixed;
   inset: 0;
   background:
-    radial-gradient(circle at top, rgba(173,216,230,0.2), transparent 60%),
-    radial-gradient(circle at bottom, rgba(173,216,230,0.2), transparent 60%);
-  z-index: 1;
+    radial-gradient(circle at top, rgba(173,216,230,0.25), transparent 60%),
+    radial-gradient(circle at bottom, rgba(173,216,230,0.25), transparent 60%),
+    radial-gradient(circle at left, rgba(173,216,230,0.15), transparent 55%),
+    radial-gradient(circle at right, rgba(173,216,230,0.15), transparent 55%);
+  z-index: 2;
+  pointer-events: none;
 }
 
-/* MENU */
+/* ===== MENU ===== */
 .header {
   position: fixed;
+  top: 0;
   width: 100%;
-  z-index: 10;
-  background: rgba(2,6,23,0.7);
-  backdrop-filter: blur(10px);
+  z-index: 4;
+  background: rgba(2,6,23,0.75);
+  backdrop-filter: blur(12px);
 }
 
 .nav {
@@ -49,93 +65,173 @@ canvas {
   align-items: center;
 }
 
-.brand { color: gold; font-weight: bold; }
+.brand {
+  font-weight: bold;
+  letter-spacing: 2px;
+  color: gold;
+}
+
+.menu {
+  display: flex;
+  gap: 25px;
+}
 
 .menu a {
   color: #fff;
-  margin-left: 20px;
   text-decoration: none;
   position: relative;
+  padding-bottom: 5px;
 }
 
-.menu a.active::after,
-.menu a:hover::after {
+.menu a::after {
   content: "";
   position: absolute;
-  width: 100%;
+  width: 0;
   height: 2px;
   background: gold;
-  bottom: -5px;
   left: 0;
+  bottom: 0;
+  transition: 0.3s;
 }
 
-/* ABAS */
+.menu a:hover::after,
+.menu a.active::after {
+  width: 100%;
+}
+
+/* ===== MOBILE MENU ===== */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.menu-toggle span {
+  width: 25px;
+  height: 3px;
+  background: gold;
+}
+
+@media (max-width: 768px) {
+  .menu {
+    position: fixed;
+    top: 65px;
+    right: -100%;
+    height: 100vh;
+    width: 220px;
+    background: rgba(2,6,23,0.95);
+    flex-direction: column;
+    padding: 40px 20px;
+    transition: 0.4s;
+  }
+
+  .menu.ativo {
+    right: 0;
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+}
+
+/* ===== ABAS ===== */
 .tabs {
-  padding-top: 120px;
   position: relative;
-  z-index: 2;
+  z-index: 3;
+  padding-top: 120px;
 }
 
 .tab {
   min-height: calc(100vh - 120px);
   display: none;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   gap: 20px;
   text-align: center;
+  padding: 40px 20px;
 }
 
 .tab.active {
   display: flex;
-  animation: fade 0.6s ease;
+  animation: fadeUp 0.6s ease forwards;
 }
 
-@keyframes fade {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-/* LOGO */
+/* ===== LOGO ===== */
 .logo {
   width: 260px;
   height: 260px;
-  background: #fff;
+  object-fit: contain;
   border-radius: 50%;
   padding: 6px;
+  background: #ffffff;
   border: 3px solid gold;
-  box-shadow: 0 0 40px gold;
+  box-shadow:
+    0 0 0 8px rgba(255,215,0,0.15),
+    0 0 50px rgba(255,215,0,0.45);
 }
 
-/* LISTA */
+/* ===== TEXTOS ===== */
+h1 {
+  font-size: 2.6rem;
+  letter-spacing: 2px;
+}
+
+.subtitle {
+  color: #9ecbff;
+}
+
+.description {
+  max-width: 420px;
+  opacity: 0.9;
+}
+
+/* ===== LISTA SERVIÇOS ===== */
 .lista-servicos {
   list-style: none;
   font-size: 1.2rem;
 }
 
-/* TABELA */
+.lista-servicos li {
+  margin-bottom: 10px;
+}
+
+/* ===== TABELA DE PREÇOS ===== */
 .tabela {
-  border-collapse: collapse;
   width: 320px;
+  border-collapse: collapse;
 }
 
 .tabela th,
 .tabela td {
-  border-bottom: 1px solid rgba(255,215,0,0.4);
   padding: 12px;
+  border-bottom: 1px solid rgba(255,215,0,0.4);
 }
 
 .tabela th {
   color: gold;
 }
 
-/* BOTÃO */
+/* ===== BOTÕES ===== */
 .btn {
   padding: 14px 30px;
+  border-radius: 30px;
   border: 2px solid gold;
   color: gold;
-  border-radius: 30px;
   text-decoration: none;
+  transition: 0.3s;
 }
 
 .btn:hover {
