@@ -4,73 +4,35 @@
   <meta charset="UTF-8">
   <title>Studio Klein | Nail Designer</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- ===== MENU ===== -->
-  <header class="header">
-    <div class="nav">
-      <span class="brand">Studio Klein</span>
+<header class="header">
+  <div class="nav">
+    <span class="brand">Studio Klein</span>
 
-      <nav class="menu">
-        <a href="#home" class="active">Início</a>
-        <a href="#servicos">Serviços</a>
-        <a href="#contato">Contato</a>
-      </nav>
+    <nav class="menu">
+      <a href="#" data-tab="inicio" class="active">Início</a>
+      <a href="#" data-tab="servicos">Serviços</a>
+      <a href="#" data-tab="precos">Preços</a>
+      <a href="#" data-tab="contato">Contato</a>
+    </nav>
 
-      <div class="menu-toggle">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
+    <div class="menu-toggle" id="menuToggle">
+      <span></span><span></span><span></span>
     </div>
-  </header>
+  </div>
+</header>
 
-  <!-- ===== FUNDOS ===== -->
-  <canvas id="waves"></canvas>
-  <div class="fog"></div>
-  <canvas id="particles"></canvas>
+<canvas id="waves"></canvas>
+<canvas id="particles"></canvas>
+<div class="fog"></div>
 
-  <!-- ===== HOME ===== -->
-  <main class="container" id="home">
-    <img src="logo.png" alt="Studio Klein" class="logo">
+<main class="tabs">
 
+  <!-- INÍCIO -->
+  <section class="tab active" id="inicio">
+    <img src="logo.png" class="logo">
     <h1>Studio Klein</h1>
-    <p class="subtitle">Nail Designer • Beleza • Elegância</p>
-
-    <p class="description">
-      Realce sua beleza com técnicas modernas, cuidado impecável e um
-      atendimento exclusivo pensado para você.
-    </p>
-
-    <a href="#contato" class="btn">Agendar Horário</a>
-  </main>
-
-  <!-- ===== SERVIÇOS ===== -->
-  <section class="extra" id="servicos">
-    <h2>Nossos Serviços</h2>
-    <p>Alongamento • Manicure • Nail Art • Spa das Mãos</p>
-  </section>
-
-  <!-- ===== CONTATO ===== -->
-  <section class="extra" id="contato">
-    <h2>Contato</h2>
-    <p>Agendamentos via WhatsApp</p>
-
-    <a
-      href="https://wa.me/5511912889819"
-      target="_blank"
-      class="btn"
-    >
-      Falar no WhatsApp
-    </a>
-  </section>
-
-  <!-- ===== SCRIPTS ===== -->
-  <script src="script.js"></script>
-  <script src="effect.js"></script>
-
-</body>
-</html>
+    <p class="subtitle">Nail Designer • Beleza • E
