@@ -35,7 +35,7 @@ canvas {
 .container {
   position: relative;
   z-index: 2;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -46,11 +46,23 @@ canvas {
 
 /* Logo */
 .logo {
-  width: 180px;
-  margin-bottom: 20px;
+  width: 220px;              /* MAIOR */
+  height: 220px;
+  object-fit: contain;
+
   border-radius: 50%;
-  border: 3px solid gold;
+  padding: 12px;
+
+  background: #fff;          /* Fundo branco limpo */
+  border: 3px solid gold;    /* Contorno dourado */
+
+  box-shadow:
+    0 0 0 6px rgba(255, 215, 0, 0.15),
+    0 0 30px rgba(255, 215, 0, 0.25);
+
+  margin-bottom: 25px;
 }
+
 
 /* Textos */
 h1 {
@@ -82,4 +94,8 @@ h1 {
 .btn:hover {
   background: gold;
   color: #020617;
+}
+.extra {
+  padding: 80px 20px;
+  text-align: center;
 }
