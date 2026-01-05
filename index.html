@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Studio Klein | Nail Designer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- FUNDO -->
+  <canvas id="waves"></canvas>
+  <canvas id="particles"></canvas>
+  <div class="fog"></div>
+
+  <!-- MENU -->
+  <header class="header">
+    <nav class="nav">
+      <span class="brand">Studio Klein</span>
+
+      <div class="menu">
+        <a data-tab="inicio" class="active">Início</a>
+        <a data-tab="servicos">Serviços</a>
+        <a data-tab="precos">Preços</a>
+        <a data-tab="contato">Contato</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- CONTEÚDO -->
+  <main class="content">
+
+    <!-- INÍCIO -->
+    <section id="inicio" class="tab active">
+      <img src="assets/logo.png" class="logo">
+      <h1>Studio Klein</h1>
+      <p class="subtitle">Beleza • Elegância • Exclusividade</p>
+
+      <p class="description">
+        Um espaço pensado para realçar sua beleza com técnicas modernas,
+        atendimento personalizado e cuidado em cada detalhe.
+      </p>
+    </section>
+
+    <!-- SERVIÇOS -->
+    <section id="servicos" class="tab">
+      <h2>Nossos Serviços</h2>
+      <ul class="list">
+        <li>Alongamento em Gel</li>
+        <li>Manicure & Pedicure</li>
+        <li>Nail Art</li>
+        <li>Spa das Mãos</li>
+      </ul>
+    </section>
+
+    <!-- PREÇOS -->
+    <section id="precos" class="tab">
+      <h2>Tabela de Preços</h2>
+
+      <table class="price-table">
+        <tr>
+          <th>Serviço</th>
+          <th>Valor</th>
+        </tr>
+        <tr>
+          <td>Alongamento em Gel</td>
+          <td>R$ 120</td>
+        </tr>
+        <tr>
+          <td>Manicure</td>
+          <td>R$ 40</td>
+        </tr>
+        <tr>
+          <td>Nail Art</td>
+          <td>R$ 25</td>
+        </tr>
+        <tr>
+          <td>Spa das Mãos</td>
+          <td>R$ 50</td>
+        </tr>
+      </table>
+    </section>
+
+    <!-- CONTATO -->
+    <section id="contato" class="tab">
+      <h2>Contato</h2>
+      <p>Agendamentos via WhatsApp</p>
+
+      <a class="btn" target="_blank"
+        href="https://wa.me/5511912889819">
+        Falar no WhatsApp
+      </a>
+    </section>
+
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
