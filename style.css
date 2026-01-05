@@ -17,7 +17,10 @@ canvas {
   position: fixed;
   top: 0;
   left: 0;
+  width: 100%;
+  height: 100%;
   z-index: 0;
+  pointer-events: none;
 }
 
 /* Névoa azul clara */
@@ -31,7 +34,7 @@ canvas {
   pointer-events: none;
 }
 
-/* Conteúdo */
+/* Conteúdo principal */
 .container {
   position: relative;
   z-index: 2;
@@ -46,23 +49,18 @@ canvas {
 
 /* Logo */
 .logo {
-  width: 220px;              /* MAIOR */
+  width: 220px;
   height: 220px;
   object-fit: contain;
-
   border-radius: 50%;
   padding: 12px;
-
-  background: #fff;          /* Fundo branco limpo */
-  border: 3px solid gold;    /* Contorno dourado */
-
+  background: #fff;
+  border: 3px solid gold;
   box-shadow:
     0 0 0 6px rgba(255, 215, 0, 0.15),
     0 0 30px rgba(255, 215, 0, 0.25);
-
   margin-bottom: 25px;
 }
-
 
 /* Textos */
 h1 {
@@ -95,7 +93,11 @@ h1 {
   background: gold;
   color: #020617;
 }
+
+/* Seção extra */
 .extra {
+  position: relative;
+  z-index: 2;
   padding: 80px 20px;
   text-align: center;
 }
