@@ -10,51 +10,54 @@ document.querySelectorAll(".menu a").forEach(btn => {
 });
 
 /* PARTÍCULAS DOURADAS */
-const pCanvas = document.getElementById("particles");
-const pCtx = pCanvas.getContext("2d");
-pCanvas.width = innerWidth;
-pCanvas.height = innerHeight;
+const p = document.getElementById("particles");
+const pctx = p.getContext("2d");
+p.width = innerWidth;
+p.height = innerHeight;
 
-let particles = Array.from({ length: 60 }, () => ({
-  x: Math.random() * pCanvas.width,
-  y: Math.random() * pCanvas.height,
+let golds = Array.from({length: 90}, () => ({
+  x: Math.random() * p.width,
+  y: Math.random() * p.height,
   r: Math.random() * 2 + 1,
-  v: Math.random() * 0.5 + 0.2
+  v: Math.random() * 0.6 + 0.2
 }));
 
-function particlesAnim() {
-  pCtx.clearRect(0,0,pCanvas.width,pCanvas.height);
-  particles.forEach(p => {
-    p.y -= p.v;
-    if (p.y < 0) p.y = pCanvas.height;
-    pCtx.fillStyle = "rgba(255,215,0,0.7)";
-    pCtx.beginPath();
-    pCtx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-    pCtx.fill();
+function particles() {
+  pctx.clearRect(0,0,p.width,p.height);
+  golds.forEach(g => {
+    g.y -= g.v;
+    if (g.y < 0) g.y = p.height;
+    pctx.fillStyle = "rgba(255,215,0,0.8)";
+    pctx.beginPath();
+    pctx.arc(g.x, g.y, g.r, 0, Math.PI*2);
+    pctx.fill();
   });
-  requestAnimationFrame(particlesAnim);
+  requestAnimationFrame(particles);
 }
-particlesAnim();
+particles();
 
-/* ONDAS AZUIS */
-const wCanvas = document.getElementById("waves");
-const wCtx = wCanvas.getContext("2d");
-wCanvas.width = innerWidth;
-wCanvas.height = innerHeight;
+/* ONDAS AZUIS MÚLTIPLAS */
+const w = document.getElementById("waves");
+const wctx = w.getContext("2d");
+w.width = innerWidth;
+w.height = innerHeight;
 
 let t = 0;
 function waves() {
-  wCtx.clearRect(0,0,wCanvas.width,wCanvas.height);
-  wCtx.strokeStyle = "rgba(100,180,255,0.3)";
-  wCtx.lineWidth = 2;
-  wCtx.beginPath();
+  wctx.clearRect(0,0,w.width,w.height);
 
-  for (let x = 0; x < wCanvas.width; x += 20) {
-    let y = Math.sin(x * 0.01 + t) * 20 + wCanvas.height / 2;
-    wCtx.lineTo(x, y);
+  for (let i = 0; i < 4; i++) {
+    wctx.beginPath();
+    wctx.strokeStyle = `rgba(120,200,255,${0.15 + i*0.05})`;
+    wctx.lineWidth = 2;
+
+    for (let x = 0; x < w.width; x += 15) {
+      let y = Math.sin(x * 0.01 + t + i) * 20 + (w.height / 2) + i * 40;
+      wctx.lineTo(x, y);
+    }
+    wctx.stroke();
   }
 
-  wCtx.stroke();
   t += 0.02;
   requestAnimationFrame(waves);
 }
