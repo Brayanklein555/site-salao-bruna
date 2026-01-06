@@ -1,86 +1,70 @@
-/* =========================
-   CANVAS ONDAS
-========================= */
-const waveCanvas = document.getElementById("waves");
-const wctx = waveCanvas.getContext("2d");
+// ABAS
+const links = document.querySelectorAll(".menu a");
+const tabs = document.querySelectorAll(".tab");
 
-function resizeWave() {
-  waveCanvas.width = window.innerWidth;
-  waveCanvas.height = window.innerHeight;
-}
-resizeWave();
-window.addEventListener("resize", resizeWave);
+links.forEach(link => {
+  link.addEventListener("click", () => {
+    links.forEach(l => l.classList.remove("active"));
+    tabs.forEach(t => t.classList.remove("active"));
 
-let waveTime = 0;
-
-function drawWaves() {
-  wctx.clearRect(0, 0, waveCanvas.width, waveCanvas.height);
-
-  for (let i = 0; i < 7; i++) {
-    wctx.beginPath();
-    for (let x = 0; x <= waveCanvas.width; x += 10) {
-      let y =
-        waveCanvas.height / 2 +
-        Math.sin((x * 0.01) + waveTime + i) * (30 + i * 8) +
-        (i - 3) * 70;
-
-      wctx.lineTo(x, y);
-    }
-
-    wctx.strokeStyle = "rgba(40,120,255,0.25)";
-    wctx.lineWidth = 1.5;
-    wctx.stroke();
-  }
-
-  waveTime += 0.01;
-  requestAnimationFrame(drawWaves);
-}
-
-drawWaves();
-
-/* =========================
-   PARTÍCULAS DOURADAS
-========================= */
-const particleCanvas = document.getElementById("particles");
-const pctx = particleCanvas.getContext("2d");
-
-function resizeParticles() {
-  particleCanvas.width = window.innerWidth;
-  particleCanvas.height = window.innerHeight;
-}
-resizeParticles();
-window.addEventListener("resize", resizeParticles);
-
-const particles = [];
-const TOTAL = 140;
-
-for (let i = 0; i < TOTAL; i++) {
-  particles.push({
-    x: Math.random() * particleCanvas.width,
-    y: Math.random() * particleCanvas.height,
-    size: Math.random() * 2 + 1,
-    speedY: Math.random() * 0.4 + 0.2,
-    alpha: Math.random()
+    link.classList.add("active");
+    document.getElementById(link.dataset.tab).classList.add("active");
   });
-}
+});
+
+// PARTÍCULAS DOURADAS
+const pCanvas = document.getElementById("particles");
+const pCtx = pCanvas.getContext("2d");
+
+pCanvas.width = innerWidth;
+pCanvas.height = innerHeight;
+
+let particles = Array.from({ length: 120 }, () => ({
+  x: Math.random() * pCanvas.width,
+  y: Math.random() * pCanvas.height,
+  r: Math.random() * 2 + 1,
+  vy: Math.random() * 0.6 + 0.2
+}));
 
 function drawParticles() {
-  pctx.clearRect(0, 0, particleCanvas.width, particleCanvas.height);
+  pCtx.clearRect(0, 0, pCanvas.width, pCanvas.height);
+  pCtx.fillStyle = "gold";
 
   particles.forEach(p => {
-    pctx.beginPath();
-    pctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-    pctx.fillStyle = `rgba(255,215,100,${p.alpha})`;
-    pctx.fill();
-
-    p.y -= p.speedY;
-    if (p.y < 0) {
-      p.y = particleCanvas.height;
-      p.x = Math.random() * particleCanvas.width;
-    }
+    p.y -= p.vy;
+    if (p.y < 0) p.y = pCanvas.height;
+    pCtx.beginPath();
+    pCtx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+    pCtx.fill();
   });
 
   requestAnimationFrame(drawParticles);
 }
-
 drawParticles();
+
+// ONDAS
+const wCanvas = document.getElementById("waves");
+const wCtx = wCanvas.getContext("2d");
+
+wCanvas.width = innerWidth;
+wCanvas.height = innerHeight;
+
+let t = 0;
+
+function drawWaves() {
+  wCtx.clearRect(0,0,wCanvas.width,wCanvas.height);
+  wCtx.strokeStyle = "rgba(0,120,255,0.4)";
+  wCtx.lineWidth = 2;
+
+  for(let i=0;i<5;i++){
+    wCtx.beginPath();
+    for(let x=0;x<wCanvas.width;x++){
+      let y = Math.sin(x*0.01 + t + i)*30 + (i*120);
+      wCtx.lineTo(x,y);
+    }
+    wCtx.stroke();
+  }
+  t += 0.01;
+  requestAnimationFrame(drawWaves);
+}
+drawWaves();
