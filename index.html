@@ -2,86 +2,78 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>𝓢𝓽𝓾𝓭𝓲𝓸 𝓚𝓵𝓮𝓲𝓷 | 𝙽𝚊𝚒𝚕 𝙳𝚎𝚜𝚒𝚐𝚗𝚎𝚛</title>
+  <title>Studio Klein | Nail Designer</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- FUNDOS -->
-  <canvas id="waves"></canvas>
-  <canvas id="particles"></canvas>
-  <div class="fog"></div>
+<canvas id="waves"></canvas>
+<canvas id="particles"></canvas>
+<div class="fog"></div>
 
-  <!-- MENU -->
-  <header class="header">
-    <nav class="nav">
-      <span class="brand">𝓢𝓽𝓾𝓭𝓲𝓸 𝓚𝓵𝓮𝓲𝓷</span>
+<header class="header">
+  <nav class="nav">
+    <span class="brand">Studio Klein</span>
 
-      <div class="menu">
-        <a data-tab="inicio" class="active">Início</a>
-        <a data-tab="precos">Preços</a>
-        <a data-tab="horarios">Horários</a>
-        <a data-tab="contato">Contato</a>
-      </div>
-    </nav>
-  </header>
+    <button class="menu-toggle">☰</button>
 
-  <!-- CONTEÚDO -->
-  <main class="content">
+    <div class="menu">
+      <a data-tab="inicio" class="active">Início</a>
+      <a data-tab="precos">Preços</a>
+      <a data-tab="horarios">Horários</a>
+      <a data-tab="contato">Contato</a>
+    </div>
+  </nav>
+</header>
 
-    <!-- INÍCIO -->
-    <section id="inicio" class="tab active">
-      <img src="logo.png" class="logo">
-      <h1>𝓢𝓽𝓾𝓭𝓲𝓸 𝓚𝓵𝓮𝓲𝓷</h1>
-      <p class="subtitle">𝑩𝒆𝒍𝒆𝒛𝒂 • 𝑬𝒍𝒆𝒈𝒂̂𝒏𝒄𝒊𝒂 • 𝑬𝒙𝒄𝒍𝒖𝒔𝒊𝒗𝒊𝒅𝒂𝒅𝒆</p>
+<main class="content">
 
-      <p class="description">
-        𝐔𝐦 𝐞𝐬𝐩𝐚𝐜̧𝐨 𝐝𝐞𝐝𝐢𝐜𝐚𝐝𝐨 𝐚𝐨 𝐜𝐮𝐢𝐝𝐚𝐝𝐨 𝐝𝐚𝐬 𝐮𝐧𝐡𝐚𝐬, 𝐨𝐟𝐞𝐫𝐞𝐜𝐞𝐧𝐝𝐨 𝐭𝐞́𝐜𝐧𝐢𝐜𝐚𝐬 𝐦𝐨𝐝𝐞𝐫𝐧𝐚𝐬, 𝐜𝐨𝐧𝐟𝐨𝐫𝐭𝐨 𝐞 𝐮𝐦 𝐚𝐭𝐞𝐧𝐝𝐢𝐦𝐞𝐧𝐭𝐨 𝐩𝐞𝐫𝐬𝐨𝐧𝐚𝐥𝐢𝐳𝐚𝐝𝐨 𝐩𝐚𝐫𝐚 𝐫𝐞𝐚𝐥𝐜̧𝐚𝐫 𝐬𝐮𝐚 𝐛𝐞𝐥𝐞𝐳𝐚.
-      </p>
-    </section>
+<section id="inicio" class="tab active">
+  <img src="logo.png" class="logo">
+  <h1>Studio Klein</h1>
+  <p class="subtitle">Beleza • Elegância • Exclusividade</p>
+  <p class="description">
+    Atendimento personalizado, técnicas modernas e um ambiente pensado para você se sentir única.
+  </p>
+  <p class="signature">Bruna Klein</p>
+</section>
 
-    <!-- PREÇOS -->
-    <section id="precos" class="tab">
-      <h2>𝙏𝙖𝙗𝙚𝙡𝙖 𝙙𝙚 𝙋𝙧𝙚𝙘̧𝙤𝙨</h2>
+<section id="precos" class="tab">
+  <h2>Tabela de Preços</h2>
+  <table class="price-table">
+    <tr><th>Serviço</th><th>Valor</th></tr>
+    <tr><td>Manicure Tradicional</td><td>R$ 35,00</td></tr>
+    <tr><td>Pedicure</td><td>R$ 35,00</td></tr>
+    <tr><td>Manicure + Pedicure</td><td>R$ 70,00</td></tr>
+    <tr><td>Alongamento em Gel</td><td>R$ 140,00</td></tr>
+    <tr><td>Alongamento em Fibra</td><td>R$ 170,00</td></tr>
+    <tr><td>Alongamento Express</td><td>R$ 100,00</td></tr>
+    <tr><td>Banho em Gel</td><td>R$ 100,00</td></tr>
+    <tr><td>Manutenção</td><td>R$ 90,00</td></tr>
+    <tr><td>Esmaltação em Gel</td><td>R$ 60,00</td></tr>
+  </table>
+</section>
 
-      <table class="price-table">
-        <tr><th>Serviço</th><th>Valor</th></tr>
-        <tr><td>Manicure Tradicional</td><td>R$ 35,00</td></tr>
-        <tr><td>Pedicure</td><td>R$ 35,00</td></tr>
-        <tr><td>Manicure + Pedicure</td><td>R$ 70,00</td></tr>
-        <tr><td>Alongamento em Gel</td><td>R$ 140,00</td></tr>
-        <tr><td>Alongamento em Fibra</td><td>R$ 170,00</td></tr>
-        <tr><td>Alongamento Express</td><td>R$ 100,00</td></tr>
-        <tr><td>Banho em Gel</td><td>R$ 100,00</td></tr>
-        <tr><td>Manutenção</td><td>R$ 90,00</td></tr>
-        <tr><td>Esmaltação em Gel</td><td>R$ 60,00</td></tr>
-      </table>
-    </section>
+<section id="horarios" class="tab">
+  <h2>Horários</h2>
+  <ul class="schedule">
+    <li><strong>Terça a Quinta:</strong> 09h às 17h</li>
+    <li><strong>Sexta e Sábado:</strong> 09h às 19h</li>
+    <li><strong>Domingo:</strong> Fechado</li>
+  </ul>
+</section>
 
-    <!-- HORÁRIOS -->
-    <section id="horarios" class="tab">
-      <h2>Horários de Funcionamento</h2>
+<section id="contato" class="tab">
+  <h2>Agendamentos</h2>
+  <a href="https://wa.me/5511912889819" class="btn" target="_blank">
+    WhatsApp
+  </a>
+</section>
 
-      <ul class="schedule">
-        <li><strong>Terça a Quinta:</strong> 09h às 17h</li>
-        <li><strong>Sexta e Sábado:</strong> 09h às 19h</li>
-        <li><strong>Domingo:</strong> Fechado</li>
-      </ul>
-    </section>
+</main>
 
-    <!-- CONTATO -->
-    <section id="contato" class="tab">
-      <h2>Contato</h2>
-      <p>Agendamentos via WhatsApp</p>
-
-      <a class="btn" target="_blank" href="https://wa.me/5511912889819">
-        Falar no WhatsApp
-      </a>
-    </section>
-
-  </main>
-
-  <script src="app.js"></script>
+<script src="effect.js"></script>
+<script src="app.js"></script>
 </body>
 </html>
