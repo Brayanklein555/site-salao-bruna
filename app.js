@@ -12,7 +12,6 @@ tabs.forEach(tab => {
 
     tab.classList.add("active");
     document.getElementById(tab.dataset.tab).classList.add("active");
-
     menu.classList.remove("show");
   };
 });
