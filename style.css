@@ -1,33 +1,54 @@
 @import url('https://fonts.googleapis.com/css2?family=Allura&family=Playfair+Display&display=swap');
 
-* { margin:0; padding:0; box-sizing:border-box; }
+* {
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
 
 body {
   background:#020617;
   color:#fff;
   font-family:Segoe UI, sans-serif;
+  overflow-x:hidden;
 }
 
-canvas, .fog {
+/* FUNDOS */
+canvas {
   position:fixed;
   inset:0;
   z-index:0;
   pointer-events:none;
 }
 
+/* NÉVOA */
 .fog {
-  background:
-    radial-gradient(circle at left, rgba(173,216,230,.18), transparent 60%),
-    radial-gradient(circle at right, rgba(173,216,230,.18), transparent 60%);
+  position:fixed;
+  top:0;
+  width:180px;
+  height:100%;
+  background:radial-gradient(circle, rgba(173,216,230,.35), transparent 70%);
+  filter:blur(60px);
+  z-index:1;
+  animation:fogMove 12s ease-in-out infinite alternate;
 }
 
+.fog-left { left:-60px; }
+.fog-right { right:-60px; animation-delay:4s; }
+
+@keyframes fogMove {
+  from { opacity:.4; }
+  to { opacity:.8; }
+}
+
+/* MENU */
 .header {
   position:fixed;
   width:100%;
   top:0;
   z-index:10;
   backdrop-filter:blur(10px);
-  background:rgba(2,6,23,.8);
+  background:rgba(2,6,23,.85);
 }
 
 .nav {
@@ -41,7 +62,7 @@ canvas, .fog {
 
 .brand {
   font-family:'Allura', cursive;
-  font-size:2.2rem;
+  font-size:2.4rem;
   color:#e89bb0;
 }
 
@@ -56,19 +77,25 @@ canvas, .fog {
 
 .menu-toggle {
   display:none;
+  font-size:2rem;
   background:none;
   border:none;
-  font-size:2rem;
   color:#e89bb0;
 }
 
+/* CONTEÚDO */
 .content {
   padding-top:120px;
   position:relative;
   z-index:2;
 }
 
-.tab { display:none; padding:60px 20px; text-align:center; }
+.tab {
+  display:none;
+  padding:60px 20px;
+  text-align:center;
+}
+
 .tab.active { display:block; }
 
 .logo {
@@ -76,8 +103,9 @@ canvas, .fog {
   height:240px;
   border-radius:50%;
   background:#fff;
-  padding:5px;
+  padding:6px;
   border:3px solid #e89bb0;
+  box-shadow:0 0 40px rgba(232,155,176,.6);
 }
 
 h1 {
@@ -97,7 +125,8 @@ h1 {
   border-collapse:collapse;
 }
 
-.price-table th, .price-table td {
+.price-table th,
+.price-table td {
   border:1px solid #e89bb0;
   padding:10px 15px;
 }
@@ -108,10 +137,9 @@ h1 {
   border:2px solid #e89bb0;
   color:#e89bb0;
   text-decoration:none;
-  display:inline-block;
 }
 
-/* MOBILE AVANÇADO */
+/* MOBILE */
 @media (max-width:768px) {
   .menu {
     position:absolute;
@@ -123,15 +151,7 @@ h1 {
     padding:15px;
     border-radius:10px;
   }
-
   .menu.show { display:flex; }
-
   .menu-toggle { display:block; }
-
-  .logo {
-    width:180px;
-    height:180px;
-  }
-
-  h1 { font-size:2.3rem; }
+  .logo { width:180px; height:180px; }
 }
