@@ -1,59 +1,86 @@
-/* ONDAS */
-const w = document.getElementById("waves");
-const wctx = w.getContext("2d");
+/* =========================
+   CANVAS ONDAS
+========================= */
+const waveCanvas = document.getElementById("waves");
+const wctx = waveCanvas.getContext("2d");
 
-function resize() {
-  w.width = innerWidth;
-  w.height = innerHeight;
+function resizeWave() {
+  waveCanvas.width = window.innerWidth;
+  waveCanvas.height = window.innerHeight;
 }
-resize();
-addEventListener("resize", resize);
+resizeWave();
+window.addEventListener("resize", resizeWave);
 
-let t = 0;
-function waves() {
-  wctx.clearRect(0,0,w.width,w.height);
-  wctx.strokeStyle = "#0a3a7a";
-  wctx.lineWidth = 1;
+let waveTime = 0;
 
-  for(let i=0;i<12;i++){
+function drawWaves() {
+  wctx.clearRect(0, 0, waveCanvas.width, waveCanvas.height);
+
+  for (let i = 0; i < 7; i++) {
     wctx.beginPath();
-    for(let x=0;x<w.width;x++){
-      let y = Math.sin(x*0.01 + t + i)*20 + i*80;
-      wctx.lineTo(x,y);
+    for (let x = 0; x <= waveCanvas.width; x += 10) {
+      let y =
+        waveCanvas.height / 2 +
+        Math.sin((x * 0.01) + waveTime + i) * (30 + i * 8) +
+        (i - 3) * 70;
+
+      wctx.lineTo(x, y);
     }
+
+    wctx.strokeStyle = "rgba(40,120,255,0.25)";
+    wctx.lineWidth = 1.5;
     wctx.stroke();
   }
 
-  t += 0.02;
-  requestAnimationFrame(waves);
+  waveTime += 0.01;
+  requestAnimationFrame(drawWaves);
 }
-waves();
 
-/* PARTÍCULAS */
-const p = document.getElementById("particles");
-const pctx = p.getContext("2d");
-p.width = innerWidth;
-p.height = innerHeight;
+drawWaves();
 
-const dots = Array.from({length:120}, () => ({
-  x: Math.random()*p.width,
-  y: Math.random()*p.height,
-  r: Math.random()*2+1,
-  v: Math.random()*0.4+0.2
-}));
+/* =========================
+   PARTÍCULAS DOURADAS
+========================= */
+const particleCanvas = document.getElementById("particles");
+const pctx = particleCanvas.getContext("2d");
 
-function particles(){
-  pctx.clearRect(0,0,p.width,p.height);
-  pctx.fillStyle = "gold";
+function resizeParticles() {
+  particleCanvas.width = window.innerWidth;
+  particleCanvas.height = window.innerHeight;
+}
+resizeParticles();
+window.addEventListener("resize", resizeParticles);
 
-  dots.forEach(d=>{
-    d.y -= d.v;
-    if(d.y<0) d.y=p.height;
+const particles = [];
+const TOTAL = 140;
+
+for (let i = 0; i < TOTAL; i++) {
+  particles.push({
+    x: Math.random() * particleCanvas.width,
+    y: Math.random() * particleCanvas.height,
+    size: Math.random() * 2 + 1,
+    speedY: Math.random() * 0.4 + 0.2,
+    alpha: Math.random()
+  });
+}
+
+function drawParticles() {
+  pctx.clearRect(0, 0, particleCanvas.width, particleCanvas.height);
+
+  particles.forEach(p => {
     pctx.beginPath();
-    pctx.arc(d.x,d.y,d.r,0,Math.PI*2);
+    pctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+    pctx.fillStyle = `rgba(255,215,100,${p.alpha})`;
     pctx.fill();
+
+    p.y -= p.speedY;
+    if (p.y < 0) {
+      p.y = particleCanvas.height;
+      p.x = Math.random() * particleCanvas.width;
+    }
   });
 
-  requestAnimationFrame(particles);
+  requestAnimationFrame(drawParticles);
 }
-particles();
+
+drawParticles();
