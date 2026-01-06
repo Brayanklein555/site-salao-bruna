@@ -2,13 +2,16 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Studio Klein | Nail Designer</title>
+  <title>Studio Klein | Bruna Klein</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- GOOGLE FONTS -->
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- FUNDOS -->
   <canvas id="waves"></canvas>
   <canvas id="particles"></canvas>
   <div class="fog"></div>
@@ -30,28 +33,26 @@
   <!-- CONTEÚDO -->
   <main class="content">
 
-    <!-- INÍCIO -->
     <section id="inicio" class="tab active">
       <img src="assets/logo.png" class="logo" alt="Studio Klein">
 
-      <h1>Studio Klein</h1>
-      <p class="subtitle">Beleza • Elegância • Exclusividade</p>
+      <h1 class="studio-name">Studio Klein</h1>
+      <h2 class="owner-name">Bruna Klein</h2>
+
+      <p class="subtitle">Nail Designer • Elegância & Exclusividade</p>
 
       <p class="description">
-        Atendimento personalizado, técnicas modernas e um ambiente sofisticado
-        para realçar sua beleza.
+        Um espaço criado para valorizar sua beleza com técnicas modernas,
+        acabamento impecável e atendimento personalizado.
       </p>
 
-      <a class="btn whatsapp"
-         href="https://wa.me/5511912889819"
-         target="_blank">
+      <a class="btn" href="https://wa.me/5511912889819" target="_blank">
         Agendar pelo WhatsApp
       </a>
     </section>
 
-    <!-- PREÇOS -->
     <section id="precos" class="tab">
-      <h2>Tabela de Preços</h2>
+      <h2 class="section-title">Tabela de Preços</h2>
 
       <table class="price-table">
         <tr><th>Serviço</th><th>Valor</th></tr>
@@ -60,16 +61,13 @@
         <tr><td>Manicure + Pedicure</td><td>R$ 70,00</td></tr>
         <tr><td>Alongamento em Gel</td><td>R$ 140,00</td></tr>
         <tr><td>Alongamento em Fibra</td><td>R$ 170,00</td></tr>
-        <tr><td>Alongamento Express</td><td>R$ 100,00</td></tr>
         <tr><td>Banho em Gel</td><td>R$ 100,00</td></tr>
         <tr><td>Manutenção</td><td>R$ 90,00</td></tr>
-        <tr><td>Esmaltação em Gel</td><td>R$ 60,00</td></tr>
       </table>
     </section>
 
-    <!-- HORÁRIOS -->
     <section id="horarios" class="tab">
-      <h2>Horários de Funcionamento</h2>
+      <h2 class="section-title">Horários</h2>
       <ul class="schedule">
         <li><strong>Terça a Quinta:</strong> 09h às 17h</li>
         <li><strong>Sexta e Sábado:</strong> 09h às 19h</li>
@@ -77,14 +75,11 @@
       </ul>
     </section>
 
-    <!-- CONTATO -->
     <section id="contato" class="tab">
-      <h2>Contato</h2>
-      <p>Agendamentos via WhatsApp</p>
+      <h2 class="section-title">Contato</h2>
+      <p>Agendamentos rápidos via WhatsApp</p>
 
-      <a class="btn whatsapp"
-         href="https://wa.me/5511912889819"
-         target="_blank">
+      <a class="btn" href="https://wa.me/5511912889819" target="_blank">
         Falar no WhatsApp
       </a>
     </section>
@@ -92,6 +87,6 @@
   </main>
 
   <script src="app.js"></script>
-  <script src="effect.js"></script>
+  <script src="effects.js"></script>
 </body>
 </html>
