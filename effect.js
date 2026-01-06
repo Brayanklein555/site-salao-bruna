@@ -1,55 +1,59 @@
-// ONDAS AZUIS
-const wave = document.getElementById("waves");
-const wctx = wave.getContext("2d");
+/* ONDAS */
+const w = document.getElementById("waves");
+const wctx = w.getContext("2d");
 
 function resize() {
-  wave.width = innerWidth;
-  wave.height = innerHeight;
+  w.width = innerWidth;
+  w.height = innerHeight;
 }
 resize();
 addEventListener("resize", resize);
 
 let t = 0;
-function drawWaves() {
-  wctx.clearRect(0,0,wave.width,wave.height);
-  wctx.strokeStyle = "rgba(0,120,255,0.25)";
-  wctx.lineWidth = 2;
+function waves() {
+  wctx.clearRect(0,0,w.width,w.height);
+  wctx.strokeStyle = "#0a3a7a";
+  wctx.lineWidth = 1;
 
-  for(let y=0;y<wave.height;y+=60){
+  for(let i=0;i<12;i++){
     wctx.beginPath();
-    for(let x=0;x<wave.width;x+=10){
-      const dy = Math.sin(x*0.01 + t + y)*10;
-      wctx.lineTo(x,y+dy);
+    for(let x=0;x<w.width;x++){
+      let y = Math.sin(x*0.01 + t + i)*20 + i*80;
+      wctx.lineTo(x,y);
     }
     wctx.stroke();
   }
-  t+=0.01;
-  requestAnimationFrame(drawWaves);
+
+  t += 0.02;
+  requestAnimationFrame(waves);
 }
-drawWaves();
+waves();
 
-// PARTÍCULAS DOURADAS
-const part = document.getElementById("particles");
-const pctx = part.getContext("2d");
-resize();
+/* PARTÍCULAS */
+const p = document.getElementById("particles");
+const pctx = p.getContext("2d");
+p.width = innerWidth;
+p.height = innerHeight;
 
-let particles = Array.from({length:70},()=>({
-  x:Math.random()*part.width,
-  y:Math.random()*part.height,
-  r:Math.random()*2+1,
-  s:Math.random()*0.5+0.2
+const dots = Array.from({length:120}, () => ({
+  x: Math.random()*p.width,
+  y: Math.random()*p.height,
+  r: Math.random()*2+1,
+  v: Math.random()*0.4+0.2
 }));
 
-function drawParticles(){
-  pctx.clearRect(0,0,part.width,part.height);
-  pctx.fillStyle="rgba(255,215,0,.7)";
-  particles.forEach(p=>{
-    p.y -= p.s;
-    if(p.y<0) p.y=part.height;
+function particles(){
+  pctx.clearRect(0,0,p.width,p.height);
+  pctx.fillStyle = "gold";
+
+  dots.forEach(d=>{
+    d.y -= d.v;
+    if(d.y<0) d.y=p.height;
     pctx.beginPath();
-    pctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+    pctx.arc(d.x,d.y,d.r,0,Math.PI*2);
     pctx.fill();
   });
-  requestAnimationFrame(drawParticles);
+
+  requestAnimationFrame(particles);
 }
-drawParticles();
+particles();
