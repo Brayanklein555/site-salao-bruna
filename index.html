@@ -8,74 +8,90 @@
 </head>
 <body>
 
-<!-- FUNDOS ANIMADOS -->
-<canvas id="waves"></canvas>
-<canvas id="particles"></canvas>
-<div class="fog fog-left"></div>
-<div class="fog fog-right"></div>
+  <!-- FUNDOS -->
+  <canvas id="waves"></canvas>
+  <canvas id="particles"></canvas>
+  <div class="fog"></div>
 
-<header class="header">
-  <nav class="nav">
-    <span class="brand">Studio Klein</span>
+  <!-- MENU -->
+  <header class="header">
+    <nav class="nav">
+      <span class="brand">Studio Klein</span>
 
-    <button class="menu-toggle">☰</button>
+      <div class="menu">
+        <a data-tab="inicio" class="active">Início</a>
+        <a data-tab="precos">Preços</a>
+        <a data-tab="horarios">Horários</a>
+        <a data-tab="contato">Contato</a>
+      </div>
+    </nav>
+  </header>
 
-    <div class="menu">
-      <a data-tab="inicio" class="active">Início</a>
-      <a data-tab="precos">Preços</a>
-      <a data-tab="horarios">Horários</a>
-      <a data-tab="contato">Contato</a>
-    </div>
-  </nav>
-</header>
+  <!-- CONTEÚDO -->
+  <main class="content">
 
-<main class="content">
+    <!-- INÍCIO -->
+    <section id="inicio" class="tab active">
+      <img src="assets/logo.png" class="logo" alt="Studio Klein">
 
-<section id="inicio" class="tab active">
-  <img src="logo.png" class="logo">
-  <h1>Studio Klein</h1>
-  <p class="subtitle">Beleza • Elegância • Exclusividade</p>
-  <p class="description">
-    Atendimento personalizado, técnicas modernas e um ambiente sofisticado para realçar sua beleza.
-  </p>
-  <p class="signature">Bruna Klein</p>
-</section>
+      <h1>Studio Klein</h1>
+      <p class="subtitle">Beleza • Elegância • Exclusividade</p>
 
-<section id="precos" class="tab">
-  <h2>Tabela de Preços</h2>
-  <table class="price-table">
-    <tr><th>Serviço</th><th>Valor</th></tr>
-    <tr><td>Manicure Tradicional</td><td>R$ 35,00</td></tr>
-    <tr><td>Pedicure</td><td>R$ 35,00</td></tr>
-    <tr><td>Manicure + Pedicure</td><td>R$ 70,00</td></tr>
-    <tr><td>Alongamento em Gel</td><td>R$ 140,00</td></tr>
-    <tr><td>Alongamento em Fibra</td><td>R$ 170,00</td></tr>
-    <tr><td>Alongamento Express</td><td>R$ 100,00</td></tr>
-    <tr><td>Banho em Gel</td><td>R$ 100,00</td></tr>
-    <tr><td>Manutenção</td><td>R$ 90,00</td></tr>
-    <tr><td>Esmaltação em Gel</td><td>R$ 60,00</td></tr>
-  </table>
-</section>
+      <p class="description">
+        Atendimento personalizado, técnicas modernas e um ambiente sofisticado
+        para realçar sua beleza.
+      </p>
 
-<section id="horarios" class="tab">
-  <h2>Horários de Funcionamento</h2>
-  <ul class="schedule">
-    <li><strong>Terça a Quinta:</strong> 09h às 17h</li>
-    <li><strong>Sexta e Sábado:</strong> 09h às 19h</li>
-    <li><strong>Domingo:</strong> Fechado</li>
-  </ul>
-</section>
+      <a class="btn whatsapp"
+         href="https://wa.me/5511912889819"
+         target="_blank">
+        Agendar pelo WhatsApp
+      </a>
+    </section>
 
-<section id="contato" class="tab">
-  <h2>Agendamentos</h2>
-  <a class="btn" target="_blank" href="https://wa.me/5511912889819">
-    WhatsApp
-  </a>
-</section>
+    <!-- PREÇOS -->
+    <section id="precos" class="tab">
+      <h2>Tabela de Preços</h2>
 
-</main>
+      <table class="price-table">
+        <tr><th>Serviço</th><th>Valor</th></tr>
+        <tr><td>Manicure Tradicional</td><td>R$ 35,00</td></tr>
+        <tr><td>Pedicure</td><td>R$ 35,00</td></tr>
+        <tr><td>Manicure + Pedicure</td><td>R$ 70,00</td></tr>
+        <tr><td>Alongamento em Gel</td><td>R$ 140,00</td></tr>
+        <tr><td>Alongamento em Fibra</td><td>R$ 170,00</td></tr>
+        <tr><td>Alongamento Express</td><td>R$ 100,00</td></tr>
+        <tr><td>Banho em Gel</td><td>R$ 100,00</td></tr>
+        <tr><td>Manutenção</td><td>R$ 90,00</td></tr>
+        <tr><td>Esmaltação em Gel</td><td>R$ 60,00</td></tr>
+      </table>
+    </section>
 
-<script src="effect.js"></script>
-<script src="app.js"></script>
+    <!-- HORÁRIOS -->
+    <section id="horarios" class="tab">
+      <h2>Horários de Funcionamento</h2>
+      <ul class="schedule">
+        <li><strong>Terça a Quinta:</strong> 09h às 17h</li>
+        <li><strong>Sexta e Sábado:</strong> 09h às 19h</li>
+        <li><strong>Domingo:</strong> Fechado</li>
+      </ul>
+    </section>
+
+    <!-- CONTATO -->
+    <section id="contato" class="tab">
+      <h2>Contato</h2>
+      <p>Agendamentos via WhatsApp</p>
+
+      <a class="btn whatsapp"
+         href="https://wa.me/5511912889819"
+         target="_blank">
+        Falar no WhatsApp
+      </a>
+    </section>
+
+  </main>
+
+  <script src="app.js"></script>
+  <script src="effect.js"></script>
 </body>
 </html>
